@@ -8,8 +8,8 @@ namespace TopSystemsTestApp.Figures
     internal abstract class Figure
     {
         protected Point Position;
-        protected UIElementCollection UiElement;
-        protected Brush Stroke;
+        protected UIElementCollection? UiElement;
+        public Brush Stroke;
         protected PathGeometry Geometry;
 
         protected Figure()
@@ -24,7 +24,7 @@ namespace TopSystemsTestApp.Figures
             Position = position;
         }
 
-        public void SetUiElement(UIElementCollection graphCollection)
+        public void SetUiElement(UIElementCollection? graphCollection)
         {
             this.UiElement = graphCollection;
         }
@@ -49,7 +49,7 @@ namespace TopSystemsTestApp.Figures
                 Stroke = this.Stroke,
                 Data = Geometry
             };
-            UiElement.Add(path);
+            UiElement?.Add(path);
         }
 
         public void Redraw()

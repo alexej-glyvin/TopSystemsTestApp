@@ -5,10 +5,10 @@ namespace TopSystemsTestApp.Figures
 {
     internal class Rectangle: Figure
     {
-        private Point Pt;
+        private Point _pt;
         public Rectangle(Point leftPt, Point pt): base(leftPt)
         {
-            this.Pt = pt;
+            this._pt = pt;
         }
 
         public Rectangle(Point leftPt, double width, double height)
@@ -18,13 +18,13 @@ namespace TopSystemsTestApp.Figures
         }
         public override void InitDraw()
         {
-            Geometry.AddGeometry(new RectangleGeometry(new Rect(Position, Pt)));
+            Geometry.AddGeometry(new RectangleGeometry(new Rect(Position, _pt)));
         }
 
         public override void Move(Vector shift)
         {
             base.Move(shift);
-            Pt = Point.Add(Pt, shift);
+            _pt = Point.Add(_pt, shift);
         }
     }
 }
